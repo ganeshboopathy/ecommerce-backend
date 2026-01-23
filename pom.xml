@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ecom</groupId>
+	<artifactId>e-com-backend-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>E-commerce Backend Parent</name>
+
+	<modules>
+		<module>Eureka/Eureka</module>
+		<module>Hero_Service/Hero_Service</module>
+		<module>api-gateway/api-gateway</module>
+		<module>product-service-api/product-service-api</module>
+		<module>sales-analytics-service/sales-analytics-service</module>
+		<module>order-service-api/order-service-api</module>
+	</modules>
+
+</project>
