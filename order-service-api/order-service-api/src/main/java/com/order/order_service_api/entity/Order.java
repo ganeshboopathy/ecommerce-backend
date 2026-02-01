@@ -16,8 +16,10 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String orderNumber;
+    private String productId;
     private String skuCode;
     private Double price;
+    private Double totalPrice;
     private Integer quantity;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

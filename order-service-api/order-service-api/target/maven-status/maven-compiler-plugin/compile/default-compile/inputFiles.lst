@@ -1,3 +1,4 @@
+D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\client\ProductClient.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\controller\MemberController.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\controller\OrderController.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\dto\member\MemberCreateRequest.java
@@ -5,6 +6,7 @@ D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\c
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\dto\member\MemberUpdateRequest.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\dto\OrderRequest.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\dto\OrderResponse.java
+D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\dto\ProductDTO.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\entity\Member.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\entity\Order.java
 D:\new project\e-com-Backend\order-service-api\order-service-api\src\main\java\com\order\order_service_api\enums\OrderStatus.java

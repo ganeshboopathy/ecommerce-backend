@@ -1,3 +1,4 @@
+com\order\order_service_api\dto\ProductDTO$ProductDTOBuilder.class
 com\order\order_service_api\entity\Member.class
 com\order\order_service_api\dto\member\MemberResponse$MemberResponseBuilder.class
 com\order\order_service_api\dto\member\MemberCreateRequest$MemberCreateRequestBuilder.class
@@ -13,6 +14,7 @@ com\order\order_service_api\service\OrderService.class
 com\order\order_service_api\dto\member\MemberResponse.class
 com\order\order_service_api\enums\OrderStatus.class
 com\order\order_service_api\service\impl\MemberServiceImpl.class
+com\order\order_service_api\client\ProductClient.class
 com\order\order_service_api\dto\OrderRequest.class
 com\order\order_service_api\controller\MemberController.class
 com\order\order_service_api\repository\MemberRepository.class
@@ -22,3 +24,4 @@ com\order\order_service_api\controller\OrderController.class
 com\order\order_service_api\service\impl\OrderServiceImpl.class
 com\order\order_service_api\event\OrderPlacedEvent.class
 com\order\order_service_api\dto\OrderResponse.class
+com\order\order_service_api\dto\ProductDTO.class

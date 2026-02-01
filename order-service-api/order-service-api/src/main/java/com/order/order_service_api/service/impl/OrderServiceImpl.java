@@ -18,12 +18,32 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
+    private final com.order.order_service_api.client.ProductClient productClient;
 
     @Override
-    public void placeOrder(OrderRequest orderRequest) {
-        Order order = orderMapper.mapToEntity(orderRequest);
+    public OrderResponse placeOrder(OrderRequest orderRequest) {
+        // 1. Fetch Product Details
+        com.order.order_service_api.dto.ProductDTO productDTO = productClient.getProductById(orderRequest.getId());
+
+        // 2. Business Logic Calculations
+        Double unitPrice = Double.parseDouble(productDTO.getPrice());
+        Double totalPrice = unitPrice * orderRequest.getQuantity();
+        String dynamicSkuCode = productDTO.getCategory() + "-[" + productDTO.getName() + "]";
+
+        // 3. Build Entity (Manual mapping preferred due to logic)
+        Order order = Order.builder()
+                .orderNumber(java.util.UUID.randomUUID().toString())
+                .productId(orderRequest.getId())
+                .skuCode(dynamicSkuCode)
+                .price(unitPrice)
+                .totalPrice(totalPrice)
+                .quantity(orderRequest.getQuantity())
+                .orderStatus(com.order.order_service_api.enums.OrderStatus.PLACED)
+                .build();
+
+        // 4. Save and Return
         orderRepository.save(order);
-        // TODO: Publish OrderPlacedEvent to a message broker (e.g., Kafka)
+        return orderMapper.mapToResponse(order);
     }
 
     @Override

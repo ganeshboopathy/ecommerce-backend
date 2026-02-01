@@ -13,6 +13,7 @@ public class OrderResponse {
     private String orderNumber;
     private String skuCode;
     private Double price;
+    private Double totalPrice;
     private Integer quantity;
     private OrderStatus orderStatus;
 }
