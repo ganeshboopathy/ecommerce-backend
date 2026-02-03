@@ -1,38 +1,61 @@
 package com.Hero_Service.Hero_Service.controller;
 
-import com.Hero_Service.Hero_Service.apiresponse.ApiResponse;
-import com.Hero_Service.Hero_Service.entity.Hero;
-import com.Hero_Service.Hero_Service.service.Heroservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.data.domain.Pageable;
+import com.Hero_Service.Hero_Service.apiresponse.ApiResponse;
+import com.Hero_Service.Hero_Service.dto.PaginationData;
+import com.Hero_Service.Hero_Service.entity.Hero;
+import com.Hero_Service.Hero_Service.service.Heroservice;
 
 @RestController
 @RequestMapping("/hero")
 public class HeroController {
-    @Autowired	Heroservice heroservice;
-    
+
+    @Autowired
+    private Heroservice heroservice;
+
     @GetMapping("/get")
-    public ResponseEntity<ApiResponse<List<Hero>>> getHero (){
-    List<Hero> listOfHero  = heroservice.GetAllHero();
-    ApiResponse<List<Hero>> response = new ApiResponse<>(HttpStatus.OK.value(), "List Hero Data's Successfully Retrieved.", listOfHero);
+    public ResponseEntity<ApiResponse<PaginationData<Hero>>> getHero(Pageable pageable) {
+
+        PaginationData<Hero> heroes = heroservice.getAllHero(pageable);
+        ApiResponse<PaginationData<Hero>> response =
+                new ApiResponse<>(
+                        HttpStatus.OK.value(),
+                        "List Of Hero Data Successfully Retrieved.",
+                        heroes
+                );
+
         return ResponseEntity.ok(response);
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Hero>> CreateHero(@RequestBody Hero hero){
-    	Hero savedHero  = heroservice.CreateHero(hero);
-        ApiResponse<Hero> response = new ApiResponse<>(HttpStatus.CREATED.value(), "Hero Data Created Successfully.", savedHero);
+    public ResponseEntity<ApiResponse<Hero>> createHero(@RequestBody Hero hero) {
+
+        Hero savedHero = heroservice.createHero(hero);
+        ApiResponse<Hero> response =
+                new ApiResponse<>(
+                        HttpStatus.CREATED.value(),
+                        "Hero Data Created Successfully.",
+                        savedHero
+                );
+
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse<Hero>> deleteById(@PathVariable  Long id){
-    	Hero deletedHero = heroservice.deleteHeroById(id);
-        ApiResponse<Hero> response = new ApiResponse<>(HttpStatus.NO_CONTENT.value(), "Hero Data Created Successfully.", deletedHero);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
+    public ResponseEntity<ApiResponse<Hero>> deleteById(@PathVariable Long id) {
+
+        Hero deletedHero = heroservice.deleteHeroById(id);
+        ApiResponse<Hero> response =
+                new ApiResponse<>(
+                        HttpStatus.OK.value(),
+                        "Hero Data Deleted Successfully.",
+                        deletedHero
+                );
+
+        return ResponseEntity.ok(response);
     }
 }
