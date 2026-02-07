@@ -21,8 +21,7 @@ public class Hero {
     public Hero() {
     }
 
-    public Hero(Long id, String offer, String content, Boolean isActive) {
-        this.id = id;
+    public Hero(String offer, String content, Boolean isActive) {
         this.offer = offer;
         this.content = content;
         this.isActive = isActive;
